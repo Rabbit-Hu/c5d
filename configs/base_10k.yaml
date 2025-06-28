@@ -1,0 +1,13 @@
+seed: 0
+n_data: 10000
+vertex:
+  n_raw_vertices: 10
+  vertex_std: 1.0
+pose:
+  rotation_noise_std: 0.1
+  translation_max_norm: 2.0
+velocity:
+  near_skew: false
+  affine_max_norm: 1.0
+  affine_noise_std: 0.0
+  linear_max_norm: 0.5
