@@ -70,9 +70,6 @@ target_link_libraries(c5d PUBLIC Eigen3::Eigen)
 include(spdlog)
 target_link_libraries(c5d PUBLIC spdlog::spdlog)
 
-# include(boost)
-# target_link_libraries(c5d PUBLIC Boost::timer Boost::filesystem Boost::regex)
-
 include(cgal)
 target_link_libraries(c5d PUBLIC CGAL::CGAL CGAL::CGAL_Core)
 

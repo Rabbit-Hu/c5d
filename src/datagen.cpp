@@ -30,15 +30,15 @@ int main(int argc, char *argv[]) {
     // spdlog::info("Saving dataset to {}/{}", argv[2], exp_name);
     // dataset.save(std::string(argv[2]) + "/" + exp_name);
 
-    std::cout << "P0: " << dataset.datapoints[0].P0 << std::endl;
-    std::cout << "P1: " << dataset.datapoints[0].P1 << std::endl;
-    std::cout << "x0: " << dataset.datapoints[0].x0 << std::endl;
-    std::cout << "x1: " << dataset.datapoints[0].x1 << std::endl;
-    std::cout << "A0: " << dataset.datapoints[0].A0 << std::endl;
-    std::cout << "A1: " << dataset.datapoints[0].A1 << std::endl;
-    std::cout << "v0: " << dataset.datapoints[0].v0 << std::endl;
-    std::cout << "v1: " << dataset.datapoints[0].v1 << std::endl;
-    std::cout << "toi: " << dataset.datapoints[0].toi << std::endl;
+    // std::cout << "P0: " << dataset.datapoints[0].P0 << std::endl;
+    // std::cout << "P1: " << dataset.datapoints[0].P1 << std::endl;
+    // std::cout << "x0: " << dataset.datapoints[0].x0 << std::endl;
+    // std::cout << "x1: " << dataset.datapoints[0].x1 << std::endl;
+    // std::cout << "A0: " << dataset.datapoints[0].A0 << std::endl;
+    // std::cout << "A1: " << dataset.datapoints[0].A1 << std::endl;
+    // std::cout << "v0: " << dataset.datapoints[0].v0 << std::endl;
+    // std::cout << "v1: " << dataset.datapoints[0].v1 << std::endl;
+    // std::cout << "toi: " << dataset.datapoints[0].toi << std::endl;
 
     return 0;
 }
