@@ -1,5 +1,6 @@
 #include <boost/timer/timer.hpp>
 #include <iostream>
+#include <fstream>
 
 #include "Dataset.hpp"
 
@@ -25,10 +26,10 @@ int main(int argc, char *argv[]) {
     Scalar slackness = 1.0 - 1e-6;
     Scalar thickness = 1e-9;
     Scalar K = 1.1;
-    int n_key_iters = 3;
+    constexpr int n_key_iters = 3;
+    constexpr int max_iter = 10000;
     Scalar key_ratios[n_key_iters] = {0.9, 0.95, 0.99};
     int key_iters[n_key_iters];
-    int max_iter = 10000;
     int n_not_converged_per_iter[4][n_key_iters][max_iter + 1];
     memset(n_not_converged_per_iter, 0, sizeof(n_not_converged_per_iter));
     Scalar *t_history = new Scalar[max_iter + 1];
@@ -44,14 +45,10 @@ int main(int argc, char *argv[]) {
     if (!std::filesystem::exists(output_dir)) {
         std::filesystem::create_directory(output_dir);
     }
-    std::fstream c5d_linear_file(output_dir + "/c5d_linear.csv",
-                                 std::ios::out | std::ios::trunc);
-    std::fstream c5d_quad_file(output_dir + "/c5d_quad.csv",
-                               std::ios::out | std::ios::trunc);
-    std::fstream c5d_quad_pw_file(output_dir + "/c5d_quad_pw.csv",
-                                  std::ios::out | std::ios::trunc);
-    std::fstream accd_file(output_dir + "/accd.csv",
-                           std::ios::out | std::ios::trunc);
+    std::ofstream c5d_linear_file(output_dir + "/c5d_linear.csv");
+    std::ofstream c5d_quad_file(output_dir + "/c5d_quad.csv");
+    std::ofstream c5d_quad_pw_file(output_dir + "/c5d_quad_pw.csv");
+    std::ofstream accd_file(output_dir + "/accd.csv");
     // std::fstream accd_parallel_file(output_dir + "/accd_parallel.csv",
     //                                 std::ios::out | std::ios::trunc);
     c5d_linear_file << header_str;
@@ -203,10 +200,9 @@ int main(int argc, char *argv[]) {
 
     // For plotting convergence curves
     for (int key_i = 0; key_i < n_key_iters; key_i++) {
-        std::fstream curve_file(
-            output_dir + "/curve_" +
-                std::to_string((int)(key_ratios[key_i] * 100)) + ".csv",
-            std::ios::out | std::ios::trunc);
+        std::string filename = output_dir + "/curve_" +
+                              std::to_string(static_cast<int>(key_ratios[key_i] * 100)) + ".csv";
+        std::ofstream curve_file(filename);
         curve_file << "iter,c5d_linear,c5d_quad,c5d_quad_pw\n";
         for (int iter = 0; iter < max_iter; iter++) {
             curve_file << iter << ","
