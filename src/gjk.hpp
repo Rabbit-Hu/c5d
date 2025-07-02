@@ -38,9 +38,9 @@ class PointSet : public Polytope {
   public:
     Matrix3XS vertices;
     Vector3S support(const Vector3S &dir) const override;
-    inline int numVertices() const override;
+    inline int numVertices() const override { return vertices.cols(); }
     // inline bool hasVertex(int i) const override;
-    inline const Eigen::Ref<const Vector3S> getVertex(int i) const override;
+    inline const Eigen::Ref<const Vector3S> getVertex(int i) const override { return vertices.col(i); }
     void getMesh(Eigen::MatrixXd &V, Eigen::MatrixXi &F) const override;
 };
 

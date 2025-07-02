@@ -453,16 +453,6 @@ Vector3S PointSet::support(const Vector3S &dir) const {
     return vertices.col(max_vertex_id);
 }
 
-inline int PointSet::numVertices() const { return vertices.cols(); }
-
-// inline bool PointSet::hasVertex(int i) const {
-//     return i < vertices.cols() && i >= 0;
-// }
-
-inline const Eigen::Ref<const Vector3S> PointSet::getVertex(int i) const {
-    return vertices.col(i);
-}
-
 void PointSet::getMesh(Eigen::MatrixXd &V, Eigen::MatrixXi &F) const {
     V.resize(3, vertices.cols());
     for (int i = 0; i < vertices.cols(); i++) {

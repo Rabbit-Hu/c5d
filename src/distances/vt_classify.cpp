@@ -142,7 +142,7 @@ int vt_classify(const Vector3S &x0, const Vector3S &x1, const Vector3S &x2,
         if (t1 >= 0.0) {
             Scalar dot12 = x12.dot(x10);
             Scalar dot13 = x13.dot(x10);
-            if (dot12 > 0.0 and dot13 <= 0.0) {  // On edge x1x2
+            if (dot12 > 0.0 && dot13 <= 0.0) {  // On edge x1x2
                 t3 = 0.0;
                 Scalar x12_sq = x12.dot(x12);
                 if (dot12 > x12_sq) {
@@ -152,7 +152,7 @@ int vt_classify(const Vector3S &x0, const Vector3S &x1, const Vector3S &x2,
                     t2 = dot12 / x12_sq;
                     return VTType::VE012;
                 }
-            } else if (dot13 > 0.0 and dot12 <= 0.0) {  // On edge x1x3
+            } else if (dot13 > 0.0 && dot12 <= 0.0) {  // On edge x1x3
                 t2 = 0.0;
                 Scalar x13_sq = x13.dot(x13);
                 if (dot13 > x13_sq) {
@@ -172,7 +172,7 @@ int vt_classify(const Vector3S &x0, const Vector3S &x1, const Vector3S &x2,
             Vector3S x21 = x1 - x2;
             Scalar dot23 = x23.dot(x20);
             Scalar dot21 = x21.dot(x20);
-            if (dot23 > 0.0 and dot21 <= 0.0) {  // On edge x2x3
+            if (dot23 > 0.0 && dot21 <= 0.0) {  // On edge x2x3
                 Scalar x23_sq = x23.dot(x23);
                 if (dot23 > x23_sq) {
                     t2 = 0.0;
@@ -183,7 +183,7 @@ int vt_classify(const Vector3S &x0, const Vector3S &x1, const Vector3S &x2,
                     t2 = 1.0 - t3;
                     return VTType::VE023;
                 }
-            } else if (dot21 > 0.0 and dot23 <= 0.0) {  // On edge x2x1
+            } else if (dot21 > 0.0 && dot23 <= 0.0) {  // On edge x2x1
                 t3 = 0.0;
                 Scalar x21_sq = x21.dot(x21);
                 if (dot21 > x21_sq) {
@@ -203,7 +203,7 @@ int vt_classify(const Vector3S &x0, const Vector3S &x1, const Vector3S &x2,
             Vector3S x32 = x2 - x3;
             Scalar dot31 = x31.dot(x30);
             Scalar dot32 = x32.dot(x30);
-            if (dot31 > 0.0 and dot32 <= 0.0) {  // On edge x3x1
+            if (dot31 > 0.0 && dot32 <= 0.0) {  // On edge x3x1
                 t2 = 0.0;
                 Scalar x31_sq = x31.dot(x31);
                 if (dot31 > x31_sq) {
@@ -213,7 +213,7 @@ int vt_classify(const Vector3S &x0, const Vector3S &x1, const Vector3S &x2,
                     t3 = 1.0 - dot31 / x31_sq;
                     return VTType::VE031;
                 }
-            } else if (dot32 > 0.0 and dot31 <= 0.0) {  // On edge x3x2
+            } else if (dot32 > 0.0 && dot31 <= 0.0) {  // On edge x3x2
                 Scalar x32_sq = x32.dot(x32);
                 if (dot32 > x32_sq) {
                     t2 = 1.0;

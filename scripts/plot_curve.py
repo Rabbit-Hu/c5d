@@ -77,13 +77,13 @@ def plot_curve(
 
 
 fig = plt.figure(figsize=(9, 2), dpi=300)
-plt.rcParams.update(
-    {
-        "text.usetex": True,
-        # Siggraph font libertine
-        "font.family": "libertine",
-    }
-)
+# plt.rcParams.update(
+#     {
+#         "text.usetex": True,
+#         # Siggraph font libertine
+#         "font.family": "libertine",
+#     }
+# )
 
 exp_root = "outputs/base"
 for id, key_ratio in enumerate(key_ratios):
